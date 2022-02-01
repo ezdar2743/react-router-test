@@ -1,10 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const profile = (props) => (
-  <>
+const Profile = (props) => {
+  const nav = useNavigate();
+  return(
+    <>
   <h1 className="profile"> profile</h1>
-  <button>go to profile</button>
-  </>  
-);
+  <button onClick={()=>{
+    nav('/')
+  }}>go to home</button>
+  </>
+  )
+    
+  };
 
-export default profile;
+export default Profile;
