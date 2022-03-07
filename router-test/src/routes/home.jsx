@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import Todo from '../components/todo';
 import { actionCreators} from '../store';
 
-const Home = ({toDos,addTodo}) => {
+const Home = ({toDos,addToDo}) => {
     const [text, setText] = useState("");
     const onChange = (e)=>{
         setText(e.target.value)
     }
     const onSubmit = (e)=>{
         e.preventDefault();
-        addTodo(text)
+        addToDo(text)
         setText('')
         
 
@@ -35,8 +35,8 @@ function mapStateToProps(state,ownProps){
 }
 function mapDispatchToProps(dispatch,ownProps){
     return {
-        addTodo: (text)=>{
-            dispatch(actionCreators.addTodo(text))
+        addToDo: (text)=>{
+            dispatch(actionCreators.addToDo(text))
         }
     }
 
