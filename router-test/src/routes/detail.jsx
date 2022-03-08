@@ -5,7 +5,6 @@ import { Link, useParams } from 'react-router-dom';
 const Detail = ({toDos}) => {
     const id = useParams().id;
     const toDo = toDos.find(toDo => toDo.id === parseInt(id) );
-    console.log(toDo)
     return (
         <>
             <h1>{toDo?.text}</h1>

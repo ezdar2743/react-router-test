@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Todo from '../components/todo';
-import { actionCreators} from '../store';
+import { add,remove} from '../store';
 
 const Home = ({toDos,addToDo}) => {
     const [text, setText] = useState("");
@@ -16,7 +16,9 @@ const Home = ({toDos,addToDo}) => {
         
 
     }
+    
     return (
+        
         <>
             <h1>To do</h1>
             <form onSubmit={onSubmit}>
@@ -25,6 +27,7 @@ const Home = ({toDos,addToDo}) => {
             </form>
             <ul>{toDos.map(text=>(
                 <Todo {...text} key={text.id}/>
+                
             ))}</ul>
         </>
     );
@@ -36,7 +39,7 @@ function mapStateToProps(state,ownProps){
 function mapDispatchToProps(dispatch,ownProps){
     return {
         addToDo: (text)=>{
-            dispatch(actionCreators.addToDo(text))
+            dispatch(add(text))
         }
     }
 
